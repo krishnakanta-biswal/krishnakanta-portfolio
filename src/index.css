@@ -1,23 +1,80 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root {
   font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 
-  color: #f8fafc;
-  background: #050816;
+  color: #0f172a;
+  background: #ffffe4;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* =========================================================
+   HTML
+========================================================= */
 
 html {
   scroll-behavior: smooth;
+  background: #ffffe4;
 }
+
+/* =========================================================
+   BODY
+========================================================= */
 
 body {
   margin: 0;
   min-width: 320px;
+  min-height: 100vh;
+
+  color: #0f172a;
+
+  background:
+    radial-gradient(
+      circle at 8% 12%,
+      rgba(255, 214, 79, 0.16),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(96, 165, 250, 0.10),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(167, 139, 250, 0.07),
+      transparent 30%
+    ),
+    #ffffe4;
+
+  transition:
+    background 0.5s ease,
+    color 0.5s ease;
+}
+
+/* =========================================================
+   DARK BODY
+========================================================= */
+
+.dark body {
+  color: #f8fafc;
+
   background:
     radial-gradient(
       circle at 15% 20%,
@@ -32,47 +89,315 @@ body {
     #050816;
 }
 
+/* =========================================================
+   BOX SIZING
+========================================================= */
+
 * {
   box-sizing: border-box;
 }
 
+/* =========================================================
+   SELECTION
+========================================================= */
+
 ::selection {
+  background: rgba(37, 99, 235, 0.22);
+  color: #0f172a;
+}
+
+.dark ::selection {
   background: rgba(96, 165, 250, 0.35);
   color: white;
 }
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
 
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050816;
+  background: #fffed8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background:
+    linear-gradient(
+      180deg,
+      #cbd5e1,
+      #94a3b8
+    );
+
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #94a3b8,
+      #64748b
+    );
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #050816;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
+
+/* =========================================================
+   BUTTONS / LINKS
+========================================================= */
 
 button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* =========================================================
+   PREMIUM GLASS
+========================================================= */
+
 .glass {
-  background: rgba(15, 23, 42, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  position: relative;
+  isolation: isolate;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(255, 255, 248, 0.72) 42%,
+      rgba(255, 252, 225, 0.76) 100%
+    );
+
+  border: 1px solid rgba(184, 164, 72, 0.22);
+
+  box-shadow:
+    0 28px 70px rgba(120, 100, 20, 0.10),
+    0 10px 30px rgba(120, 100, 20, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(188, 166, 76, 0.07);
+
+  backdrop-filter:
+    blur(26px)
+    saturate(135%);
+
+  -webkit-backdrop-filter:
+    blur(26px)
+    saturate(135%);
+
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    transform 0.5s ease;
 }
+
+/* =========================================================
+   GLASS HIGHLIGHT
+========================================================= */
+
+.glass::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.12) 30%,
+      transparent 52%,
+      rgba(255, 255, 255, 0.18) 100%
+    );
+
+  opacity: 0.85;
+
+  z-index: -1;
+}
+
+/* =========================================================
+   GLASS CONTENT
+========================================================= */
+
+.glass > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   GLASS HOVER
+========================================================= */
+
+.glass:hover {
+  border-color: rgba(184, 164, 72, 0.32);
+
+  box-shadow:
+    0 32px 80px rgba(120, 100, 20, 0.12),
+    0 12px 35px rgba(120, 100, 20, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* =========================================================
+   DARK GLASS
+========================================================= */
+
+.dark .glass {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 25, 45, 0.82) 0%,
+      rgba(8, 16, 31, 0.74) 50%,
+      rgba(12, 18, 38, 0.82) 100%
+    );
+
+  border-color: rgba(255, 255, 255, 0.10);
+
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.32),
+    0 0 45px rgba(37, 99, 235, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.02);
+
+  backdrop-filter:
+    blur(26px)
+    saturate(125%);
+
+  -webkit-backdrop-filter:
+    blur(26px)
+    saturate(125%);
+}
+
+/* =========================================================
+   DARK GLASS HIGHLIGHT
+========================================================= */
+
+.dark .glass::before {
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.07) 0%,
+      transparent 35%,
+      transparent 65%,
+      rgba(255, 255, 255, 0.025) 100%
+    );
+
+  opacity: 0.7;
+}
+
+/* =========================================================
+   DARK GLASS HOVER
+========================================================= */
+
+.dark .glass:hover {
+  border-color: rgba(96, 165, 250, 0.18);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.36),
+    0 0 50px rgba(37, 99, 235, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   GRID BACKGROUND — LIGHT
+========================================================= */
 
 .grid-background {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(
+      rgba(148, 163, 184, 0.085) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.085) 1px,
+      transparent 1px
+    );
+
   background-size: 55px 55px;
+}
+
+/* =========================================================
+   GRID BACKGROUND — DARK
+========================================================= */
+
+.dark .grid-background {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+}
+
+/* =========================================================
+   PREMIUM PAGE GLOW
+========================================================= */
+
+.page-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 9999px;
+  filter: blur(120px);
+}
+
+/* =========================================================
+   FOCUS OUTLINE
+========================================================= */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.55);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   MOBILE SAFETY
+========================================================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

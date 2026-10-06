@@ -5,7 +5,9 @@ import {
   Sparkles,
 } from "lucide-react";
 
-/* ================= GITHUB ICON ================= */
+/* =========================================================
+   GITHUB ICON
+========================================================= */
 
 function GithubIcon({ size = 18 }) {
   return (
@@ -21,7 +23,9 @@ function GithubIcon({ size = 18 }) {
   );
 }
 
-/* ================= LINKEDIN ICON ================= */
+/* =========================================================
+   LINKEDIN ICON
+========================================================= */
 
 function LinkedinIcon({ size = 18 }) {
   return (
@@ -32,33 +36,151 @@ function LinkedinIcon({ size = 18 }) {
       fill="currentColor"
       aria-hidden="true"
     >
-      {/* Clean LinkedIn "in" mark */}
       <path d="M5.25 3.25a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.55 8.5h3.4V20h-3.4V8.5ZM9.2 8.5h3.25v1.57h.05c.45-.86 1.55-1.77 3.19-1.77 3.41 0 4.04 2.24 4.04 5.16V20h-3.37v-5.79c0-1.38-.03-3.15-1.92-3.15-1.92 0-2.21 1.5-2.21 3.05V20H9.2V8.5Z" />
     </svg>
   );
 }
 
-/* ================= HERO ================= */
+/* =========================================================
+   HERO
+========================================================= */
 
 function Hero() {
   return (
     <section
       id="home"
-      className="grid-background relative flex min-h-screen items-center overflow-hidden px-6 pb-20 pt-32 md:px-10 lg:px-16"
+      className="
+        grid-background
+        relative
+        flex
+        min-h-screen
+        items-center
+        overflow-hidden
+        px-6
+        pb-20
+        pt-32
+        text-slate-900
+        transition-colors
+        duration-700
+
+        bg-[#FFFFE4]
+
+        dark:bg-[#050816]
+        dark:text-white
+
+        md:px-10
+        lg:px-16
+      "
     >
-      {/* ================= BACKGROUND GLOW ================= */}
+      {/* =====================================================
+          PREMIUM AMBIENT LIGHT
+      ===================================================== */}
 
-      <div className="pointer-events-none absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-blue-600/10 blur-[120px]" />
+      {/* Warm glow */}
 
-      <div className="pointer-events-none absolute bottom-1/4 right-1/4 h-72 w-72 rounded-full bg-violet-600/10 blur-[120px]" />
+      <div
+        className="
+          pointer-events-none
+          absolute
+          left-[8%]
+          top-[12%]
+          h-96
+          w-96
+          rounded-full
+          bg-amber-200/20
+          blur-[130px]
+          transition-opacity
+          duration-700
 
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-[1.2fr_0.8fr]">
+          dark:bg-blue-600/10
+        "
+      />
 
-        {/* ================= LEFT CONTENT ================= */}
+      {/* Blue glow */}
 
-        <div>
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[8%]
+          top-[16%]
+          h-96
+          w-96
+          rounded-full
+          bg-blue-300/10
+          blur-[140px]
+          transition-opacity
+          duration-700
 
-          {/* Availability badge */}
+          dark:bg-blue-600/10
+        "
+      />
+
+      {/* Violet glow */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          bottom-[5%]
+          left-[42%]
+          h-80
+          w-80
+          rounded-full
+          bg-violet-300/10
+          blur-[140px]
+          transition-opacity
+          duration-700
+
+          dark:bg-violet-600/10
+        "
+      />
+
+      {/* Small warm center glow */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          left-[45%]
+          top-[35%]
+          h-56
+          w-56
+          rounded-full
+          bg-yellow-200/15
+          blur-[110px]
+
+          dark:bg-cyan-500/5
+        "
+      />
+
+      {/* =====================================================
+          MAIN CONTAINER
+      ===================================================== */}
+
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          grid
+          w-full
+          max-w-7xl
+          items-center
+          gap-16
+
+          lg:grid-cols-[1.2fr_0.8fr]
+        "
+      >
+        {/* ===================================================
+            LEFT CONTENT
+        =================================================== */}
+
+        <div className="min-w-0">
+
+          {/* =================================================
+              AVAILABILITY BADGE
+          ================================================= */}
 
           <motion.div
             initial={{
@@ -72,20 +194,78 @@ function Hero() {
             transition={{
               duration: 0.6,
             }}
-            className="mb-7 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-4 py-2"
+            className="
+              mb-7
+              inline-flex
+              items-center
+              gap-2
+              rounded-full
+              border
+              px-4
+              py-2
+              shadow-sm
+              transition-all
+              duration-500
+
+              border-emerald-500/20
+              bg-white/45
+              text-emerald-700
+              shadow-emerald-900/5
+              backdrop-blur-md
+
+              dark:border-emerald-400/20
+              dark:bg-emerald-400/5
+              dark:text-emerald-300
+              dark:shadow-none
+            "
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span
+                className="
+                  absolute
+                  inline-flex
+                  h-full
+                  w-full
+                  animate-ping
+                  rounded-full
+                  bg-emerald-400
+                  opacity-75
+                "
+              />
 
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              <span
+                className="
+                  relative
+                  inline-flex
+                  h-2
+                  w-2
+                  rounded-full
+                  bg-emerald-400
+                  shadow-[0_0_12px_rgba(52,211,153,0.6)]
+                "
+              />
             </span>
 
-            <span className="text-xs font-medium text-emerald-300">
+            <span
+              className="
+                text-xs
+                font-semibold
+                tracking-wide
+                transition-colors
+                duration-500
+
+                text-emerald-700
+
+                dark:text-emerald-300
+              "
+            >
               React Developer · Building & Learning
             </span>
           </motion.div>
 
-          {/* Main heading */}
+          {/* =================================================
+              MAIN HEADING
+          ================================================= */}
 
           <motion.h1
             initial={{
@@ -100,18 +280,51 @@ function Hero() {
               duration: 0.8,
               delay: 0.1,
             }}
-            className="max-w-5xl text-5xl font-black leading-[1.27] tracking-[-0.04em] text-white sm:text-6xl md:text-7xl lg:text-6xl"
+            className="
+              max-w-5xl
+              text-5xl
+              font-black
+              leading-[1.12]
+              tracking-[-0.045em]
+              transition-colors
+              duration-500
+
+              text-slate-950
+
+              dark:text-white
+
+              sm:text-6xl
+              md:text-7xl
+              lg:text-6xl
+              xl:text-7xl
+            "
           >
             Building
 
-            <span className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-violet-400 bg-clip-text text-transparent">
+            <span
+              className="
+                block
+                bg-gradient-to-r
+                from-blue-600
+                via-cyan-500
+                to-violet-600
+                bg-clip-text
+                text-transparent
+
+                dark:from-blue-400
+                dark:via-cyan-300
+                dark:to-violet-400
+              "
+            >
               digital
             </span>
 
             experiences.
           </motion.h1>
 
-          {/* Description */}
+          {/* =================================================
+              DESCRIPTION
+          ================================================= */}
 
           <motion.p
             initial={{
@@ -126,10 +339,33 @@ function Hero() {
               duration: 0.7,
               delay: 0.25,
             }}
-            className="mt-8 max-w-2xl text-base leading-7 text-slate-400 sm:text-lg"
+            className="
+              mt-8
+              max-w-2xl
+              text-base
+              leading-7
+              transition-colors
+              duration-500
+
+              text-slate-600
+
+              dark:text-slate-400
+
+              sm:text-lg
+            "
           >
             I'm{" "}
-            <span className="font-semibold text-white">
+            <span
+              className="
+                font-bold
+                transition-colors
+                duration-500
+
+                text-slate-950
+
+                dark:text-white
+              "
+            >
               Krishnakanta Biswal
             </span>
             , a React Developer focused on building modern web and mobile
@@ -137,7 +373,9 @@ function Hero() {
             thoughtful interactions.
           </motion.p>
 
-          {/* Buttons */}
+          {/* =================================================
+              BUTTONS
+          ================================================= */}
 
           <motion.div
             initial={{
@@ -152,19 +390,53 @@ function Hero() {
               duration: 0.7,
               delay: 0.35,
             }}
-            className="mt-9 flex flex-wrap items-center gap-3"
+            className="
+              mt-9
+              flex
+              flex-wrap
+              items-center
+              gap-3
+            "
           >
             {/* Projects */}
 
             <a
               href="#projects"
-              className="group flex items-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-bold text-slate-950 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-50"
+              className="
+                group
+                flex
+                items-center
+                gap-2
+                rounded-xl
+                bg-slate-950
+                px-5
+                py-3.5
+                text-sm
+                font-bold
+                text-white
+                shadow-[0_10px_25px_rgba(15,23,42,0.16)]
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:bg-blue-600
+                hover:shadow-[0_15px_30px_rgba(37,99,235,0.22)]
+
+                dark:bg-white
+                dark:text-slate-950
+                dark:shadow-white/5
+                dark:hover:bg-blue-50
+              "
             >
               Explore Projects
 
               <ArrowUpRight
                 size={17}
-                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-0.5
+                  group-hover:-translate-y-0.5
+                "
               />
             </a>
 
@@ -172,18 +444,55 @@ function Hero() {
 
             <a
               href="#contact"
-              className="group flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]"
+              className="
+                group
+                flex
+                items-center
+                gap-2
+                rounded-xl
+                border
+                bg-white/45
+                px-5
+                py-3.5
+                text-sm
+                font-semibold
+                shadow-sm
+                backdrop-blur-md
+                transition-all
+                duration-300
+                hover:-translate-y-1
+
+                border-slate-300/70
+                text-slate-800
+                hover:border-blue-200
+                hover:bg-white/75
+                hover:text-blue-700
+
+                dark:border-white/10
+                dark:bg-white/[0.03]
+                dark:text-white
+                dark:shadow-none
+                dark:hover:border-white/20
+                dark:hover:bg-white/[0.06]
+              "
             >
               Let's Connect
 
               <ArrowDownRight
                 size={17}
-                className="transition-transform duration-300 group-hover:translate-y-0.5 group-hover:translate-x-0.5"
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover:translate-y-0.5
+                  group-hover:translate-x-0.5
+                "
               />
             </a>
           </motion.div>
 
-          {/* ================= SOCIAL LINKS ================= */}
+          {/* =================================================
+              SOCIAL LINKS
+          ================================================= */}
 
           <motion.div
             initial={{
@@ -196,9 +505,28 @@ function Hero() {
               duration: 0.7,
               delay: 0.5,
             }}
-            className="mt-8 flex items-center gap-3"
+            className="
+              mt-8
+              flex
+              items-center
+              gap-3
+            "
           >
-            <span className="mr-2 text-xs uppercase tracking-[0.2em] text-slate-600">
+            <span
+              className="
+                mr-2
+                text-xs
+                font-medium
+                uppercase
+                tracking-[0.2em]
+                transition-colors
+                duration-500
+
+                text-slate-500
+
+                dark:text-slate-600
+              "
+            >
               Connect
             </span>
 
@@ -209,7 +537,36 @@ function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="group flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-500 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/5 hover:text-white"
+              className="
+                group
+                flex
+                h-9
+                w-9
+                items-center
+                justify-center
+                rounded-lg
+                border
+                bg-white/40
+                text-slate-500
+                shadow-sm
+                backdrop-blur-md
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+
+                border-slate-300/70
+                hover:border-slate-400
+                hover:bg-white/75
+                hover:text-slate-950
+
+                dark:border-white/10
+                dark:bg-transparent
+                dark:text-slate-500
+                dark:shadow-none
+                dark:hover:border-white/20
+                dark:hover:bg-white/5
+                dark:hover:text-white
+              "
             >
               <GithubIcon size={16} />
             </a>
@@ -221,14 +578,45 @@ function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="group flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-500 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/30 hover:bg-blue-400/5 hover:text-blue-400"
+              className="
+                group
+                flex
+                h-9
+                w-9
+                items-center
+                justify-center
+                rounded-lg
+                border
+                bg-white/40
+                text-slate-500
+                shadow-sm
+                backdrop-blur-md
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+
+                border-slate-300/70
+                hover:border-blue-200
+                hover:bg-blue-50/80
+                hover:text-blue-600
+
+                dark:border-white/10
+                dark:bg-transparent
+                dark:text-slate-500
+                dark:shadow-none
+                dark:hover:border-blue-400/30
+                dark:hover:bg-blue-400/5
+                dark:hover:text-blue-400
+              "
             >
               <LinkedinIcon size={17} />
             </a>
           </motion.div>
         </div>
 
-        {/* ================= RIGHT VISUAL ================= */}
+        {/* ===================================================
+            RIGHT VISUAL
+        =================================================== */}
 
         <motion.div
           initial={{
@@ -243,13 +631,50 @@ function Hero() {
             duration: 1,
             delay: 0.2,
           }}
-          className="relative hidden h-[500px] items-center justify-center lg:flex"
+          className="
+            relative
+            hidden
+            h-[500px]
+            items-center
+            justify-center
+            lg:flex
+          "
         >
-          {/* Glow */}
+          {/* =================================================
+              LARGE AMBIENT GLOW
+          ================================================= */}
 
-          <div className="absolute h-80 w-80 rounded-full bg-blue-500/10 blur-[100px]" />
+          <div
+            className="
+              absolute
+              h-96
+              w-96
+              rounded-full
+              bg-amber-200/20
+              blur-[120px]
+              transition-opacity
+              duration-700
 
-          {/* Orbit */}
+              dark:bg-blue-500/10
+            "
+          />
+
+          <div
+            className="
+              absolute
+              h-72
+              w-72
+              rounded-full
+              bg-blue-300/10
+              blur-[110px]
+
+              dark:bg-violet-500/10
+            "
+          />
+
+          {/* =================================================
+              ORBIT
+          ================================================= */}
 
           <motion.div
             animate={{
@@ -260,14 +685,103 @@ function Hero() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="absolute h-[380px] w-[380px] rounded-full border border-white/5"
-          >
-            <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-blue-400 shadow-lg shadow-blue-500/70" />
+            className="
+              absolute
+              h-[380px]
+              w-[380px]
+              rounded-full
+              border
+              transition-colors
+              duration-500
 
-            <div className="absolute bottom-10 right-3 h-3 w-3 rounded-full bg-violet-400 shadow-lg shadow-violet-500/70" />
+              border-slate-300/60
+
+              dark:border-white/5
+            "
+          >
+            {/* Blue orbit point */}
+
+            <div
+              className="
+                absolute
+                -top-2
+                left-1/2
+                h-4
+                w-4
+                -translate-x-1/2
+                rounded-full
+                bg-blue-500
+                shadow-[0_0_20px_rgba(59,130,246,0.55)]
+
+                dark:bg-blue-400
+                dark:shadow-blue-500/70
+              "
+            />
+
+            {/* Violet orbit point */}
+
+            <div
+              className="
+                absolute
+                bottom-10
+                right-3
+                h-3
+                w-3
+                rounded-full
+                bg-violet-500
+                shadow-[0_0_18px_rgba(139,92,246,0.55)]
+
+                dark:bg-violet-400
+                dark:shadow-violet-500/70
+              "
+            />
+
+            {/* Small amber orbit point */}
+
+            <div
+              className="
+                absolute
+                bottom-16
+                left-4
+                h-2
+                w-2
+                rounded-full
+                bg-amber-400
+                shadow-[0_0_15px_rgba(251,191,36,0.45)]
+
+                dark:bg-amber-300
+              "
+            />
           </motion.div>
 
-          {/* Developer card */}
+          {/* =================================================
+              INNER ORBIT
+          ================================================= */}
+
+          <motion.div
+            animate={{
+              rotate: -360,
+            }}
+            transition={{
+              duration: 34,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="
+              absolute
+              h-[320px]
+              w-[320px]
+              rounded-full
+              border
+              border-blue-200/30
+
+              dark:border-blue-400/5
+            "
+          />
+
+          {/* =================================================
+              DEVELOPER CARD
+          ================================================= */}
 
           <motion.div
             animate={{
@@ -278,58 +792,182 @@ function Hero() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="glass relative w-[320px] rounded-3xl p-6 shadow-2xl shadow-blue-950/40"
+            className="
+              glass
+              relative
+              z-10
+              w-[320px]
+              rounded-[1.75rem]
+              p-6
+              transition-all
+              duration-500
+            "
           >
-            {/* Card header */}
+            {/* =================================================
+                CARD HEADER
+            ================================================= */}
 
             <div className="flex items-center justify-between">
-
               <div className="flex items-center gap-3">
 
-                <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-white/10 bg-slate-800 shadow-lg shadow-blue-500/20">
+                {/* Profile */}
+
+                <div
+                  className="
+                    relative
+                    h-10
+                    w-10
+                    shrink-0
+                    overflow-hidden
+                    rounded-xl
+                    border
+                    bg-white
+                    shadow-[0_8px_20px_rgba(37,99,235,0.10)]
+                    transition-all
+                    duration-500
+
+                    border-slate-200
+
+                    dark:border-white/10
+                    dark:bg-slate-800
+                    dark:shadow-blue-500/20
+                  "
+                >
                   <img
                     src="/Krishna-photo.jpg"
                     alt="Krishnakanta Biswal"
-                    className="h-full w-full object-cover object-center"
+                    className="
+                      h-full
+                      w-full
+                      object-cover
+                      object-center
+                    "
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      bg-gradient-to-t
+                      from-black/15
+                      to-transparent
+                    "
+                  />
                 </div>
 
+                {/* Name */}
+
                 <div>
-                  <p className="text-sm font-bold text-white">
+                  <p
+                    className="
+                      text-sm
+                      font-bold
+                      transition-colors
+                      duration-500
+
+                      text-slate-950
+
+                      dark:text-white
+                    "
+                  >
                     Krishnakanta
                   </p>
 
-                  <p className="text-xs text-slate-500">
+                  <p
+                    className="
+                      text-xs
+                      font-medium
+                      text-slate-500
+                    "
+                  >
                     React Developer
                   </p>
                 </div>
               </div>
 
+              {/* Sparkles */}
+
               <Sparkles
-                className="text-blue-400"
+                className="
+                  text-blue-500
+                  dark:text-blue-400
+                "
                 size={20}
               />
             </div>
 
-            <div className="my-6 h-px bg-white/5" />
+            {/* =================================================
+                DIVIDER
+            ================================================= */}
 
-            {/* Current focus */}
+            <div
+              className="
+                my-6
+                h-px
+                bg-gradient-to-r
+                from-transparent
+                via-slate-300
+                to-transparent
+                transition-colors
+                duration-500
 
-            <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                dark:via-white/10
+              "
+            />
+
+            {/* =================================================
+                CURRENT FOCUS
+            ================================================= */}
+
+            <p
+              className="
+                text-xs
+                font-medium
+                uppercase
+                tracking-[0.2em]
+                text-slate-500
+              "
+            >
               Currently building
             </p>
 
-            <p className="mt-2 text-2xl font-bold text-white">
+            <p
+              className="
+                mt-2
+                text-2xl
+                font-black
+                leading-tight
+                tracking-[-0.03em]
+                transition-colors
+                duration-500
+
+                text-slate-950
+
+                dark:text-white
+              "
+            >
               Modern Web
 
-              <span className="block text-blue-400">
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-blue-600
+                  to-violet-600
+                  bg-clip-text
+                  text-transparent
+
+                  dark:from-blue-400
+                  dark:to-violet-400
+                "
+              >
                 Experiences
               </span>
             </p>
 
-            {/* Technologies */}
+            {/* =================================================
+                TECHNOLOGIES
+            ================================================= */}
 
             <div className="mt-6 grid grid-cols-2 gap-2">
               {[
@@ -340,21 +978,90 @@ function Hero() {
               ].map((tech) => (
                 <div
                   key={tech}
-                  className="rounded-xl border border-white/5 bg-white/[0.025] px-3 py-2.5 text-center text-xs text-slate-400"
+                  className="
+                    rounded-xl
+                    border
+                    bg-white/55
+                    px-3
+                    py-2.5
+                    text-center
+                    text-xs
+                    font-semibold
+                    text-slate-600
+                    shadow-sm
+                    backdrop-blur-md
+                    transition-all
+                    duration-300
+                    hover:-translate-y-0.5
+
+                    border-slate-200/80
+                    hover:border-blue-200
+                    hover:bg-blue-50/70
+                    hover:text-blue-700
+
+                    dark:border-white/5
+                    dark:bg-white/[0.025]
+                    dark:text-slate-400
+                    dark:shadow-none
+                    dark:hover:border-blue-400/20
+                    dark:hover:bg-blue-400/5
+                    dark:hover:text-blue-300
+                  "
                 >
                   {tech}
                 </div>
               ))}
             </div>
 
-            {/* Experience */}
+            {/* =================================================
+                FOCUS BAR
+            ================================================= */}
 
-            <div className="mt-5 flex items-center justify-between rounded-xl bg-blue-500/5 px-4 py-3">
-              <span className="text-xs text-slate-400">
+            <div
+              className="
+                mt-5
+                flex
+                items-center
+                justify-between
+                rounded-xl
+                border
+                bg-gradient-to-r
+                from-blue-50/80
+                to-violet-50/70
+                px-4
+                py-3
+                shadow-sm
+                transition-all
+                duration-500
+
+                border-blue-100/80
+
+                dark:border-blue-400/10
+                dark:from-blue-500/5
+                dark:to-violet-500/5
+                dark:shadow-none
+              "
+            >
+              <span
+                className="
+                  text-xs
+                  font-medium
+                  text-slate-500
+                  dark:text-slate-400
+                "
+              >
                 Focus
               </span>
 
-              <span className="text-xs font-semibold text-blue-300">
+              <span
+                className="
+                  text-xs
+                  font-bold
+                  text-blue-600
+
+                  dark:text-blue-300
+                "
+              >
                 React · Web · Mobile
               </span>
             </div>
@@ -362,7 +1069,9 @@ function Hero() {
         </motion.div>
       </div>
 
-      {/* ================= SCROLL INDICATOR ================= */}
+      {/* =====================================================
+          SCROLL INDICATOR
+      ===================================================== */}
 
       <motion.a
         href="#about"
@@ -374,7 +1083,27 @@ function Hero() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-xs uppercase tracking-[0.25em] text-slate-600 md:flex"
+        className="
+          absolute
+          bottom-7
+          left-1/2
+          hidden
+          -translate-x-1/2
+          items-center
+          gap-2
+          text-xs
+          font-medium
+          uppercase
+          tracking-[0.25em]
+          transition-colors
+          duration-500
+
+          text-slate-500
+
+          dark:text-slate-600
+
+          md:flex
+        "
       >
         Scroll
 

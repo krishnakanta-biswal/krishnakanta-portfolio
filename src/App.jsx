@@ -9,33 +9,50 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import IntroScreen from "./components/IntroScreen";
 
+import { ThemeProvider } from "./context/ThemeContext";
+
 function App() {
   const [introFinished, setIntroFinished] = useState(false);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#050816] text-white">
-      {!introFinished && (
-        <IntroScreen onComplete={() => setIntroFinished(true)} />
-      )}
-
+    <ThemeProvider>
       <div
-        className={`transition-opacity duration-700 ${
-          introFinished ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <Navbar />
+  className="
+    min-h-screen
+    w-full
+    max-w-[100vw]
+    overflow-x-hidden
+    bg-[#FFFFE4]
+    text-slate-900
+    transition-colors
+    duration-500
+    dark:bg-[#050816]
+    dark:text-white
+  "
+>
+        {!introFinished && (
+          <IntroScreen onComplete={() => setIntroFinished(true)} />
+        )}
 
-        <main>
-          <Hero />
-          <About />
-          <Experience />
-          <Projects />
-          <Contact />
-        </main>
+        <div
+          className={`transition-opacity duration-700 ${
+            introFinished ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Navbar />
 
-        <Footer />
+          <main className="w-full max-w-[100vw] overflow-x-hidden">
+            <Hero />
+            <About />
+            <Experience />
+            <Projects />
+            <Contact />
+          </main>
+
+          <Footer />
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
